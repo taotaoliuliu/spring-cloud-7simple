@@ -24,4 +24,11 @@ public class UserService {
 		List<User> list = userMapper.findAll();
 		return list;
 	}
+
+	public void adduser(User user) {
+		
+		
+		userMapper.adduser(user);
+		
+	}
 }

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
+import org.springframework.util.StringUtils;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -38,4 +39,26 @@ public class UserDaoImpl implements UserDao {
     public List<User> findAll() {
         return jdbcTemplate.query("select * from user ",USER_ROW_MAPPER);
     }
+
+	@Override
+	public void adduser(User user) {
+		
+		
+		if(!StringUtils.isEmpty(user.getId())){
+			
+			String sql =" insert into user(id,username) values('"+user.getId()+"','"+user.getUsername()+"')";
+			
+			
+			jdbcTemplate.execute(sql);
+		}
+		
+		
+		
+		
+		
+		
+		System.out.println("DDDDDDDD");
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -6,4 +6,9 @@
   <select id="findAll" resultType="cloud.simple.service.model.User">
     select * from user
   </select>
+  
+  <insert id="adduser" parameterType="cloud.simple.service.model.User">
+  
+  insert into user(id,name) values(#id,#username)
+  </insert>
 </mapper>
